@@ -1,10 +1,11 @@
 import { Wrapper } from './styles';
+import { Heading } from '../../components/Heading';
 
 const Home = () => {
   return (
-    <div>
+    <div className="Home">
       <Wrapper>
-        <h1>Hello</h1>
+        <Heading>Hello do Heading</Heading>
       </Wrapper>
     </div>
   );

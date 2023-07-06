@@ -90,4 +90,11 @@ describe('Heading', () => {
 
     expect(h6.tagName.toLowerCase()).toBe('h6');
   });
+
+  it('should match snapshot', () => {
+    renderTheme(<Heading>texto</Heading>);
+    const heading = screen.getByRole('heading', { name: /texto/i });
+
+    expect(heading).toMatchSnapshot();
+  });
 });

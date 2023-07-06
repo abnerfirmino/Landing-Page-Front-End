@@ -1,4 +1,4 @@
-import { expect, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { renderTheme } from '../../styles/render-theme';
@@ -19,7 +19,7 @@ describe('Heading', () => {
   });
 
   it('should render with white color', () => {
-    renderTheme(<Heading colorDark={false}>texto</Heading>);
+    renderTheme(<Heading colordark={false}>texto</Heading>);
     const heading = screen.getByRole('heading', { name: 'texto' });
 
     expect(heading).toHaveStyle({
@@ -41,7 +41,7 @@ describe('Heading', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyle({
+    expect(heading).toHaveStyle({
       'font-size': theme.fonts.sizes.xlarge,
     });
 
@@ -51,7 +51,7 @@ describe('Heading', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyle({
+    expect(heading).toHaveStyle({
       'font-size': theme.fonts.sizes.large,
     });
 
@@ -67,16 +67,12 @@ describe('Heading', () => {
   });
 
   it('should render correct font-size when using mobile', () => {
-    const { rerender } = renderTheme(<Heading size="huge">texto</Heading>);
+    renderTheme(<Heading size="huge">texto</Heading>);
     const heading = screen.getByRole('heading', { name: 'texto' });
 
-    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyleRule(
-      'font-size',
-      theme.fonts.sizes.xlarge,
-      {
-        media: theme.media.ltMedium,
-      },
-    );
+    expect(heading).toHaveStyleRule('font-size', theme.fonts.sizes.xlarge, {
+      media: theme.media.ltMedium,
+    });
   });
 
   it('should render with uppercase letters', () => {
@@ -90,7 +86,6 @@ describe('Heading', () => {
 
   it('should render correct heading element', () => {
     const { container } = renderTheme(<Heading as="h6">texto</Heading>);
-    const heading = screen.getByRole('heading', { name: 'texto' });
     const h6 = container.querySelector('h6');
 
     expect(h6.tagName.toLowerCase()).toBe('h6');

@@ -16,7 +16,7 @@ const titleSize = {
 
 function mediaFont(theme) {
   return css`
-    @media screen and ${theme.media.ltMedium} {
+    @media ${theme.media.ltMedium} {
       font-size: ${theme.fonts.sizes.xlarge};
     }
   `;

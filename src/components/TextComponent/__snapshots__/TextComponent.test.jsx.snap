@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextComponent > should have default styles 1`] = `
+.c0 {
+  font-size: 2.4rem;
+}
+
+<div
+  class="c0"
+>
+  <p>
+    Lorem ipsum.
+  </p>
+</div>
+`;

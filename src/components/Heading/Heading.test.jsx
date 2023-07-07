@@ -92,9 +92,8 @@ describe('Heading', () => {
   });
 
   it('should match snapshot', () => {
-    renderTheme(<Heading>texto</Heading>);
-    const heading = screen.getByRole('heading', { name: /texto/i });
+    const { container } = renderTheme(<Heading>texto</Heading>);
 
-    expect(heading).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

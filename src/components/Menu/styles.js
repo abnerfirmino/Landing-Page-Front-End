@@ -28,6 +28,7 @@ export const Container = styled.div`
       margin-top: 0;
       margin-bottom: 0;
     }
+
     @media ${theme.media.ltMedium} {
       height: 100vh;
       visibility: hidden;

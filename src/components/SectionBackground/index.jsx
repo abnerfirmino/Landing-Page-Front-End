@@ -1,4 +1,4 @@
-import P from 'prop-types';
+import PropTypes from 'prop-types';
 import { SectionContainer } from '../SectionContainer';
 import * as Styled from './styles';
 
@@ -11,6 +11,6 @@ export const SectionBackground = ({ children, background = false }) => {
 };
 
 SectionBackground.propTypes = {
-  children: P.node.isRequired,
-  background: P.bool,
+  children: PropTypes.node.isRequired,
+  background: PropTypes.bool,
 };

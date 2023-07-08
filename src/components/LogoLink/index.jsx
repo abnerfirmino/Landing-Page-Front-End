@@ -1,4 +1,4 @@
-import P from 'prop-types';
+import PropTypes from 'prop-types';
 import * as Styled from './styles';
 import { Heading } from '../Heading';
 
@@ -14,7 +14,7 @@ export const LogoLink = ({ text, srcImg = '', link }) => {
 };
 
 LogoLink.propTypes = {
-  text: P.string.isRequired,
-  srcImg: P.string,
-  link: P.string.isRequired,
+  text: PropTypes.string.isRequired,
+  srcImg: PropTypes.string,
+  link: PropTypes.string.isRequired,
 };

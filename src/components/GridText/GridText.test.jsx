@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { renderTheme } from '../../styles/render-theme';
 import { GridText } from '.';
 

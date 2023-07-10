@@ -1,14 +1,8 @@
-import { Wrapper } from './styles';
-import { Heading } from '../../components/Heading';
+import { Base } from '../Base';
+import { MockBase } from '../Base/mock';
 
 const Home = () => {
-  return (
-    <div className="Home">
-      <Wrapper>
-        <Heading>Hello do Heading</Heading>
-      </Wrapper>
-    </div>
-  );
+  return <Base {...MockBase} />;
 };
 
 export default Home;

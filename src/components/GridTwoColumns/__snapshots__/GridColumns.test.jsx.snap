@@ -85,9 +85,7 @@ exports[`<GridTwoColumns /> > should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio magnam culpa eveniet doloribus harum? Ipsam, a necessitatibus? Sequi sunt accusantium quod, animi iure a, aliquid dolor ea vel magni dolore?
-            </p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio magnam culpa eveniet doloribus harum? Ipsam, a necessitatibus? Sequi sunt accusantium quod, animi iure a, aliquid dolor ea vel magni dolore?
           </div>
         </div>
         <div

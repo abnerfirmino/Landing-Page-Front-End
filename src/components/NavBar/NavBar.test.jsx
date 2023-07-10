@@ -5,7 +5,7 @@ import { NavBar } from '.';
 import link from './mock';
 import { theme } from '../../styles/theme';
 
-describe('<NavLinks />', () => {
+describe('<NavBar />', () => {
   it('should render links', () => {
     renderTheme(<NavBar links={link} />);
     expect(screen.getAllByRole('link')).toHaveLength(link.length);

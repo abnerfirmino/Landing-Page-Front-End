@@ -1,30 +1,11 @@
+import { describe, expect, it } from 'vitest';
+import { screen } from '@testing-library/react';
+import { renderTheme } from '../../styles/render-theme';
 import { Base } from '.';
 
-import mock from './mock';
-import { GridText } from '../../components/GridText';
-import gridMock from '../../components/GridText/mock';
-
-export default {
-  title: 'Templates/Base',
-  component: Base,
-  args: {
-    children: (
-      <>
-        <GridText {...gridMock} background />
-        <GridText {...gridMock} />
-        <GridText {...gridMock} background />
-        <GridText {...gridMock} />
-        <GridText {...gridMock} background />
-      </>
-    ),
-    ...mock,
-  },
-};
-
-export const Template = (args) => {
-  return (
-    <div>
-      <Base {...args} />
-    </div>
-  );
-};
+describe('<Base />', () => {
+  it('should render', () => {
+    renderTheme(<Base>Children</Base>);
+    expect(screen.getByRole('heading')).toBeInTheDocument();
+  });
+});

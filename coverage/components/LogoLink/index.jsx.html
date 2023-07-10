@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/MenuLink/styles.js</title>
+    <title>Code coverage report for components/LogoLink/index.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/MenuLink</a> styles.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/LogoLink</a> index.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/28</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/28</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -83,70 +83,46 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
-<span class="cline-any cline-yes">73x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled, { css } from 'styled-components';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import PropTypes from 'prop-types';
+import * as Styled from './styles';
+import { Heading } from '../Heading';
 &nbsp;
-export const Container = styled.a`
-  ${({ theme }) =&gt; css`
-    display: block;
-    text-decoration: none;
-    font-size: ${theme.fonts.sizes.small};
-    padding: ${theme.spacings.xsmall};
-    color: ${theme.colors.primaryColor};
-    position: relative;
+export const LogoLink = ({ text, srcImg = '', link }) =&gt; {
+  return (
+    &lt;Heading size="small" uppercase&gt;
+      &lt;Styled.Container href={link}&gt;
+        {!!srcImg &amp;&amp; &lt;img src={srcImg} alt={text} /&gt;}
+        {!srcImg &amp;&amp; text}
+      &lt;/Styled.Container&gt;
+    &lt;/Heading&gt;
+  );
+};
 &nbsp;
-    &amp;::after {
-      content: '';
-      position: absolute;
-      bottom: 0.76rem;
-      left: 50%;
-      width: 0;
-      height: 0.2rem;
-      background-color: ${theme.colors.secondaryColor};
-      transition: all 300ms ease-in-out;
-    }
-&nbsp;
-    &amp;:hover::after {
-      left: 25%;
-      width: 50%;
-    }
-  `}
-`;
+LogoLink.propTypes = {
+  text: PropTypes.string.isRequired,
+  srcImg: PropTypes.string,
+  link: PropTypes.string.isRequired,
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

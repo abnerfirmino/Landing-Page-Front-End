@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import P from 'prop-types';
 import * as Styled from './styles';
 
 export const SectionContainer = ({ children }) => {
@@ -6,5 +6,5 @@ export const SectionContainer = ({ children }) => {
 };
 
 SectionContainer.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: P.node.isRequired,
 };

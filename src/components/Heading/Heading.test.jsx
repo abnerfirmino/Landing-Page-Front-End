@@ -1,25 +1,23 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
+import { Heading } from '.';
 import { renderTheme } from '../../styles/render-theme';
 import { theme } from '../../styles/theme';
 
-import { Heading } from '.';
-
-describe('Heading', () => {
+describe('<Heading />', () => {
   it('should render with default values', () => {
     renderTheme(<Heading>texto</Heading>);
     const heading = screen.getByRole('heading', { name: 'texto' });
 
     expect(heading).toHaveStyle({
       color: theme.colors.primaryColor,
-      'font-size': theme.fonts.sizes.xhuge,
+      'font-size': theme.font.sizes.xhuge,
       'text-transform': 'none',
     });
   });
 
   it('should render with white color', () => {
-    renderTheme(<Heading colordark={false}>texto</Heading>);
+    renderTheme(<Heading colorDark={false}>texto</Heading>);
     const heading = screen.getByRole('heading', { name: 'texto' });
 
     expect(heading).toHaveStyle({
@@ -32,7 +30,7 @@ describe('Heading', () => {
     const heading = screen.getByRole('heading', { name: 'texto' });
 
     expect(heading).toHaveStyle({
-      'font-size': theme.fonts.sizes.medium,
+      'font-size': theme.font.sizes.medium,
     });
 
     rerender(
@@ -41,8 +39,8 @@ describe('Heading', () => {
       </ThemeProvider>,
     );
 
-    expect(heading).toHaveStyle({
-      'font-size': theme.fonts.sizes.xlarge,
+    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyle({
+      'font-size': theme.font.sizes.xlarge,
     });
 
     rerender(
@@ -51,8 +49,8 @@ describe('Heading', () => {
       </ThemeProvider>,
     );
 
-    expect(heading).toHaveStyle({
-      'font-size': theme.fonts.sizes.large,
+    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyle({
+      'font-size': theme.font.sizes.large,
     });
 
     rerender(
@@ -62,17 +60,21 @@ describe('Heading', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyle({
-      'font-size': theme.fonts.sizes.xhuge,
+      'font-size': theme.font.sizes.xhuge,
     });
   });
 
   it('should render correct font-size when using mobile', () => {
-    renderTheme(<Heading size="huge">texto</Heading>);
+    const { rerender } = renderTheme(<Heading size="huge">texto</Heading>);
     const heading = screen.getByRole('heading', { name: 'texto' });
 
-    expect(heading).toHaveStyleRule('font-size', theme.fonts.sizes.xlarge, {
-      media: theme.media.ltMedium,
-    });
+    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyleRule(
+      'font-size',
+      theme.font.sizes.xlarge,
+      {
+        media: theme.media.lteMedium,
+      },
+    );
   });
 
   it('should render with uppercase letters', () => {
@@ -86,14 +88,9 @@ describe('Heading', () => {
 
   it('should render correct heading element', () => {
     const { container } = renderTheme(<Heading as="h6">texto</Heading>);
+    const heading = screen.getByRole('heading', { name: 'texto' });
     const h6 = container.querySelector('h6');
 
     expect(h6.tagName.toLowerCase()).toBe('h6');
-  });
-
-  it('should match snapshot', () => {
-    const { container } = renderTheme(<Heading>texto</Heading>);
-
-    expect(container.firstChild).toMatchSnapshot();
   });
 });

@@ -4,7 +4,7 @@ export default {
   title: 'Heading',
   component: Heading,
   args: {
-    children: 'Texto escuro',
+    children: 'O texto está escuro',
   },
   argTypes: {
     children: { type: 'string' },
@@ -26,6 +26,6 @@ Light.parameters = {
 };
 
 Dark.args = {
-  children: 'Texto claro',
-  colordark: false,
+  children: 'O texto está claro',
+  colorDark: false,
 };

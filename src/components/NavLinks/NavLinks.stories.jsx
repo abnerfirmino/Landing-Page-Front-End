@@ -1,9 +1,9 @@
-import { NavBar } from '.';
+import { NavLinks } from '.';
 import links from './mock';
 
 export default {
-  title: 'NavBar',
-  component: NavBar,
+  title: 'NavLinks',
+  component: NavLinks,
   args: {
     links: links,
   },
@@ -15,7 +15,7 @@ export default {
 export const Template = (args) => {
   return (
     <div>
-      <NavBar {...args} />
+      <NavLinks {...args} />
     </div>
   );
 };

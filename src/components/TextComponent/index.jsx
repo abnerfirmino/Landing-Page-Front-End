@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import P from 'prop-types';
 import * as Styled from './styles';
 
 export const TextComponent = ({ children }) => {
@@ -6,5 +6,5 @@ export const TextComponent = ({ children }) => {
 };
 
 TextComponent.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: P.node.isRequired,
 };

@@ -1,28 +1,25 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
+import { renderTheme } from '../../styles/render-theme';
 import { TextComponent } from '.';
 
-import { renderTheme } from '../../styles/render-theme';
-
-describe('TextComponent', () => {
-  it('should render the correct text', () => {
-    renderTheme(
-      <TextComponent>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      </TextComponent>,
-    );
-
-    const text = screen.getByText(/Lorem ipsum, dolor/i);
-
-    expect(text).toBeInTheDocument();
+describe('<TextComponent />', () => {
+  it('should render a text', () => {
+    renderTheme(<TextComponent>Children</TextComponent>);
+    expect(screen.getByText('Children')).toBeInTheDocument();
   });
 
-  it('should have default styles', () => {
-    const { container } = renderTheme(
-      <TextComponent>Lorem ipsum.</TextComponent>,
-    );
-    const text = container.firstChild;
+  it('should match snapshot', () => {
+    const { container } = renderTheme(<TextComponent>Children</TextComponent>);
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      .c0 {
+        font-size: 2.4rem;
+      }
 
-    expect(text).toMatchSnapshot();
+      <div
+        class="c0"
+      >
+        Children
+      </div>
+    `);
   });
 });

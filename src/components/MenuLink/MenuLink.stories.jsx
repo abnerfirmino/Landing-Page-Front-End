@@ -4,12 +4,11 @@ export default {
   title: 'MenuLink',
   component: MenuLink,
   args: {
-    children: 'Menu Link',
-    link: 'https://www.google.com.br',
+    children: 'MenuLink',
+    link: 'https://www.google.com.br/',
   },
   argTypes: {
     children: { type: 'string' },
-    link: { type: 'string' },
   },
 };
 

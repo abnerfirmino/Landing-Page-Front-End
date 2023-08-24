@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import P from 'prop-types';
+import { Link } from 'react-router-dom';
 import * as Styled from './styles';
 
 export const MenuLink = ({ children, link, newTab = false }) => {
@@ -12,7 +13,7 @@ export const MenuLink = ({ children, link, newTab = false }) => {
 };
 
 MenuLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  link: PropTypes.string.isRequired,
-  newTab: PropTypes.bool,
+  children: P.node.isRequired,
+  link: P.string.isRequired,
+  newTab: P.bool,
 };

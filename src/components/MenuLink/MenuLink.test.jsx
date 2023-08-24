@@ -1,45 +1,42 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
+import { renderTheme } from '../../styles/render-theme';
 import { MenuLink } from '.';
 
-import { renderTheme } from '../../styles/render-theme';
-
-describe('MenuLink', () => {
+describe('<MenuLink />', () => {
   it('should render a link', () => {
-    renderTheme(<MenuLink link="https://localhost">Children</MenuLink>);
-
-    const linK = screen.getByRole('link', { name: 'Children' });
-
-    expect(linK).toHaveAttribute('target', '_self');
+    renderTheme(<MenuLink link="http://localhost">Children</MenuLink>);
+    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+      'target',
+      '_self',
+    );
   });
 
-  it('should open a new tab', () => {
+  it('should render open in a new tab', () => {
     renderTheme(
-      <MenuLink link="https://localhost" newTab={true}>
+      <MenuLink link="http://localhost" newTab={true}>
         Children
       </MenuLink>,
     );
-
-    const linK = screen.getByRole('link', { name: 'Children' });
-
-    expect(linK).toHaveAttribute('target', '_blank');
+    expect(screen.getByRole('link', { name: 'Children' })).toHaveAttribute(
+      'target',
+      '_blank',
+    );
   });
 
-  it('should match snapshot', () => {
+  it('should render open in a new tab', () => {
     const { container } = renderTheme(
-      <MenuLink link="https://localhost">Children</MenuLink>,
+      <MenuLink link="http://localhost" newTab={false}>
+        Children
+      </MenuLink>,
     );
-
-    const linK = container.firstChild;
-
-    expect(linK).toMatchInlineSnapshot(`
+    expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         display: block;
         -webkit-text-decoration: none;
         text-decoration: none;
         font-size: 1.6rem;
-        padding: 0.8rem;
-        color: #0a1128;
+        padding: 1.6rem;
+        color: #0A1128;
         position: relative;
       }
 
@@ -50,7 +47,7 @@ describe('MenuLink', () => {
         left: 50%;
         width: 0;
         height: 0.2rem;
-        background-color: #dc143c;
+        background: #dc143c;
         -webkit-transition: all 300ms ease-in-out;
         transition: all 300ms ease-in-out;
       }
@@ -62,7 +59,7 @@ describe('MenuLink', () => {
 
       <a
         class="c0"
-        href="https://localhost"
+        href="http://localhost"
         target="_self"
       >
         Children

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -8,17 +8,17 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%; // 10 rem
+    font-size: 62.5%;
     scroll-behavior: smooth;
   }
 
   body {
     font-size: 1.6rem;
-    font-family: ${({ theme }) => theme.fonts.family.default};
+    font-family: ${({ theme }) => theme.font.family.default};
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: ${({ theme }) => theme.fonts.family.secondary};
+    font-family: ${({ theme }) => theme.font.family.secondary};
     margin: ${({ theme }) => theme.spacings.large} 0;
   }
 
@@ -33,5 +33,10 @@ export const GlobalStyles = createGlobalStyle`
 
   a {
     color: ${({ theme }) => theme.colors.secondaryColor};
+  }
+
+  .table {
+    width: 100%;
+    overflow-y: auto;
   }
 `;

@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
 import { renderTheme } from '../../styles/render-theme';
 import { Footer } from '.';
@@ -16,11 +15,12 @@ describe('<Footer />', () => {
         max-width: 120rem;
         margin: 0 auto;
         padding: 3.2rem;
+        width: 100%;
       }
 
       .c0 {
         text-align: center;
-        border-top: 0.1rem solid;
+        border-top: 0.1rem solid #DDDDDD;
       }
 
       .c0 a {

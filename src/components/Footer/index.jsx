@@ -1,18 +1,24 @@
-import PropTypes from 'prop-types';
-import * as Styled from './styles';
-import { TextComponent } from '../TextComponent';
-import { SectionContainer } from '../SectionContainer';
+import styled, { css } from 'styled-components';
+import { Container as TextComponent } from '../TextComponent/styles';
+import { Container as SectionContainer } from '../SectionContainer/styles';
 
-export const Footer = ({ footerHtml }) => {
-  return (
-    <Styled.Container>
-      <SectionContainer>
-        <TextComponent>{footerHtml}</TextComponent>
-      </SectionContainer>
-    </Styled.Container>
-  );
-};
+export const Container = styled.footer`
+  ${({ theme }) => css`
+    text-align: center;
+    border-top: 0.1rem solid ${theme.colors.mediumGray};
 
-Footer.propTypes = {
-  footerHtml: PropTypes.string.isRequired,
-};
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    & ${TextComponent} {
+      font-size: ${theme.font.sizes.small};
+    }
+
+    & ${SectionContainer} {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  `}
+`;

@@ -29,7 +29,7 @@ export const Container = styled.div`
       margin-bottom: 0;
     }
 
-    @media ${theme.media.ltMedium} {
+    @media ${theme.media.lteMedium} {
       height: 100vh;
       visibility: hidden;
       opacity: 0;
@@ -59,7 +59,7 @@ export const MenuContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    @media ${theme.media.ltMedium} {
+    @media ${theme.media.lteMedium} {
       display: block;
       text-align: center;
       padding: ${theme.spacings.xxlarge} 0;
@@ -81,7 +81,7 @@ export const Button = styled.button`
     display: none;
     pointer-events: ${visible ? 'none' : 'all'};
 
-    @media ${theme.media.ltMedium} {
+    @media ${theme.media.lteMedium} {
       display: flex;
       align-items: center;
       justify-content: center;

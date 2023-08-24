@@ -1,32 +1,44 @@
-export default {
-  background: false,
-  title: 'My grid',
-  description:
-    'Atque doloribus nobis laudantium esse ut, non commodi maxime distinctio veritatis unde',
-  grid: [
-    {
-      altText: 'Teste 1',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=1',
-    },
-    {
-      altText: 'Teste 2',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=2',
-    },
-    {
-      altText: 'Teste 3',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=3',
-    },
-    {
-      altText: 'Teste 4',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=4',
-    },
-    {
-      altText: 'Teste 5',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=5',
-    },
-    {
-      altText: 'Teste 6',
-      srcImg: 'https://source.unsplash.com/random/800x800?r=6',
-    },
-  ],
+import P from 'prop-types';
+import { Heading } from '../Heading';
+import { SectionBackground } from '../SectionBackground';
+import { TextComponent } from '../TextComponent';
+import * as Styled from './styles';
+
+export const GridImage = ({
+  title,
+  description,
+  grid,
+  background = false,
+  sectionId = '',
+}) => {
+  return (
+    <SectionBackground background={background} sectionId={sectionId}>
+      <Styled.Container>
+        <Heading size="huge" uppercase colorDark={!background} as="h2">
+          {title}
+        </Heading>
+        <TextComponent>{description}</TextComponent>
+        <Styled.Grid>
+          {grid.map((el) => (
+            <Styled.GridElement key={`${el.srcImg}${el.altText}`}>
+              <Styled.Image src={el.srcImg} alt={el.altText} />
+            </Styled.GridElement>
+          ))}
+        </Styled.Grid>
+      </Styled.Container>
+    </SectionBackground>
+  );
+};
+
+GridImage.propTypes = {
+  background: P.bool,
+  title: P.string.isRequired,
+  description: P.string.isRequired,
+  grid: P.arrayOf(
+    P.shape({
+      altText: P.string.isRequired,
+      srcImg: P.string.isRequired,
+    }),
+  ).isRequired,
+  sectionId: P.string,
 };

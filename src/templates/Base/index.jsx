@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import P from 'prop-types';
 import * as Styled from './styles';
 import { Menu } from '../../components/Menu';
 import { Footer } from '../../components/Footer';
 import { GoTop } from '../../components/GoTop';
 
-export const Base = ({ links = [], logoData, footerHtml, children }) => {
+export const Base = ({ links, logoData, footerHtml, children }) => {
   return (
     <>
       <Menu links={links} logoData={logoData} />
       <Styled.Container>
         {children}
-        <Footer html={footerHtml} />
+        <Footer footerHtml={footerHtml} />
       </Styled.Container>
       <GoTop />
     </>
@@ -18,7 +18,7 @@ export const Base = ({ links = [], logoData, footerHtml, children }) => {
 };
 
 Base.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: P.node.isRequired,
   ...Menu.propTypes,
-  footerHtml: PropTypes.string.isRequired,
+  footerHtml: P.string.isRequired,
 };

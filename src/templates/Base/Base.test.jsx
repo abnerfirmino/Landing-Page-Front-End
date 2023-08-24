@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { renderTheme } from '../../styles/render-theme';
 import { Base } from '.';
-import { MockBase } from './mock';
+import { mockBase } from './mock';
 
 describe('<Base />', () => {
   it('should render', () => {
-    const { container } = renderTheme(<Base {...MockBase} />);
+    const { container } = renderTheme(<Base {...mockBase} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -4,7 +4,7 @@ export const Container = styled.div`
   ${({ theme }) => css`
     padding-top: 5.4rem;
 
-    @media ${theme.media.ltMedium} {
+    @media ${theme.media.lteMedium} {
       padding-top: 0;
     }
   `}

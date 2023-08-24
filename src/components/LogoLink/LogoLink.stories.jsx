@@ -4,12 +4,8 @@ export default {
   title: 'LogoLink',
   component: LogoLink,
   args: {
-    children: 'LogoLink',
-  },
-  argTypes: {
-    children: { type: 'string' },
     text: 'LogoLink',
-    srcImg: '../../assets/images/logo.svg',
+    srcImg: 'assets/images/logo.svg',
     link: 'http://localhost',
   },
 };

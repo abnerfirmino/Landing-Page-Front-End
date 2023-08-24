@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
+import P from 'prop-types';
 import * as Styled from './styles';
 import { Heading } from '../Heading';
+import { Link } from 'react-router-dom';
 
 export const LogoLink = ({ text, srcImg = '', link }) => {
   return (
@@ -14,7 +15,7 @@ export const LogoLink = ({ text, srcImg = '', link }) => {
 };
 
 LogoLink.propTypes = {
-  text: PropTypes.string.isRequired,
-  srcImg: PropTypes.string,
-  link: PropTypes.string.isRequired,
+  text: P.string.isRequired,
+  srcImg: P.string,
+  link: P.string.isRequired,
 };

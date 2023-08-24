@@ -1,8 +1,6 @@
-import { describe, expect, it } from 'vitest';
 import { screen } from '@testing-library/react';
-
-import { LogoLink } from '.';
 import { renderTheme } from '../../styles/render-theme';
+import { LogoLink } from '.';
 
 describe('<LogoLink />', () => {
   it('should render text logo', () => {

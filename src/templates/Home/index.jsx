@@ -1,20 +1,16 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-
-import * as Styled from './styles';
+import { useEffect, useRef, useState } from 'react';
 
 import { mapData } from '../../api/map-data';
 
-import { Heading } from '../../components/Heading';
 import { GridTwoColumns } from '../../components/GridTwoColumns';
 import { GridContent } from '../../components/GridContent';
 import { GridText } from '../../components/GridText';
 import { GridImage } from '../../components/GridImage';
 
-import { mockBase } from '../Base/mock';
 import { Base } from '../Base';
 import { PageNotFound } from '../PageNotFound';
 import { Loading } from '../Loading';
+import { useLocation } from 'react-router-dom';
 
 import config from '../../config';
 
@@ -22,22 +18,37 @@ function Home() {
   const [data, setData] = useState([]);
   const location = useLocation();
 
-  useEffect(() => {
-    const pathname = location.pathname.replace(/[^a-z0-9-_]/gi, '');
-    const slug = pathname ? pathname : config.defaultSlug;
+  // tratando memory leak
+  const isCancelled = useRef(false);
 
+  function checkIfIsCancelled() {
+    if (isCancelled.current) {
+      return false;
+    }
+  }
+
+  useEffect(() => {
     const load = async () => {
+      checkIfIsCancelled();
+
+      const pathName = location.pathname.replace(/[^a-z0-9-_]/gi, '');
+      const slug = pathName ? pathName : 'landing-page';
       try {
-        const data = await fetch(config.url + slug);
+        const data = await fetch(`${config.url}${slug}&populate=deep`);
         const json = await data.json();
-        const pageData = mapData(json);
-        setData(pageData[0]);
-      } catch (e) {
+        const { attributes } = await json.data[0];
+        const pageData = mapData([attributes]);
+        setData(() => pageData[0]);
+      } catch {
         setData(undefined);
       }
     };
 
     load();
+
+    return () => {
+      isCancelled.current = true;
+    };
   }, [location]);
 
   useEffect(() => {
@@ -63,7 +74,7 @@ function Home() {
   }
 
   const { menu, sections, footerHtml, slug } = data;
-  const { links, text, link, srcImg } = menu;
+  const { link, links, srcImg, text } = menu;
 
   return (
     <Base

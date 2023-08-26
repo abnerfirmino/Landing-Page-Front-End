@@ -36,7 +36,7 @@ GridImage.propTypes = {
   description: P.string.isRequired,
   grid: P.arrayOf(
     P.shape({
-      altText: P.string.isRequired,
+      altText: P.string,
       srcImg: P.string.isRequired,
     }),
   ).isRequired,

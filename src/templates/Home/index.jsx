@@ -49,7 +49,7 @@ function Home() {
     return () => {
       isCancelled.current = true;
     };
-  }, [location]);
+  }, []);
 
   useEffect(() => {
     if (data === undefined) {

@@ -104,7 +104,13 @@ export const mapImageGrid = (section = {}) => {
     description,
     grid: grid.map((img) => {
       const {
-        image: { url: srcImg = '', alternativeText: altText = '' } = '',
+        image: {
+          data[0]: {
+            attributes: {
+              url: srcImg = '', alternativeText: altText = '',
+            }
+          }
+        } = '',
       } = img;
       return {
         srcImg,
